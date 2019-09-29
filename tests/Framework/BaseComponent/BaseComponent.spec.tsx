@@ -1,5 +1,5 @@
 import * as React from 'react';
-import BaseComponent from "../../../src/Framework/Fundamental/BaseComponent/BaseComponent";
+import BaseComponent from "../../../src/Framework/Fundamental/Base/BaseComponent";
 import Enzyme, {shallow, mount, render} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 

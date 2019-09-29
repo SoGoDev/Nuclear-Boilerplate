@@ -12,7 +12,7 @@ export interface MiddlewareFunction {
 
 export const middlewareWrapper = (middleware: MiddlewareFunction) => store => next => action => {
 
-  if (middleware instanceof Function) return middleware(store, next, action);
+  if (middleware instanceof Function) return middleware(store, next, action)
   else {
 
     console.error(`Middleware ${middleware} is not type of functions`);

@@ -25,3 +25,7 @@
 To work in development mode `npm start`   
 
 To create bundle `npm run build`
+
+**Instruction manual**
+
+This assembly provides you with a ready-made architecture. 

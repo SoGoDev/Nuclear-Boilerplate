@@ -1,12 +1,13 @@
-import EN from '../../Localization/EN.json';
-import RU from '../../Localization/RU.json';
+function importAll(lang) {
+  return lang.keys().reduce((acc, cur) => {
+    acc[cur.replace('./', "").replace(".json", "").toUpperCase()] = lang(cur);
+    return acc
+  }, {})
+}
 
-
-const languages = {
-  EN, RU
-};
+const languages = importAll(require.context('../../Localization/', true, /.json/));
 
 export default function Localize(key: string, languageKey: string): string {
-  if(languages[languageKey] && languages[languageKey][key]) return languages[languageKey][key]
+  if (languages[languageKey] && languages[languageKey][key]) return languages[languageKey][key];
   return languages['EN'][key]
 }

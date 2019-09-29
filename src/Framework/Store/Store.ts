@@ -16,7 +16,7 @@ interface Module {
   name: string,
   reducer: Reducer,
   //Auto save date before page will refresh.
-  cash?: boolean
+  cache?: boolean
   middleware?: MiddlewareFunction | [MiddlewareFunction]
 }
 
@@ -39,7 +39,7 @@ function prepareMiddleware(middleware: MiddlewareFunction | [MiddlewareFunction]
 function prepareModules(module: Module) {
   //@ts-ignore
   if (module.middleware) middlewares.push(...prepareMiddleware(module.middleware));
-  if (module.cash) persistConfig.whitelist.push(module.name);
+  if (module.cache) persistConfig.whitelist.push(module.name);
   reducers[module.name] = module.reducer
 
 }

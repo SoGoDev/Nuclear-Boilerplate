@@ -1,5 +1,5 @@
 import * as React from 'react'
-import BaseComponent from "../../Framework/Fundamental/BaseComponent/BaseComponent";
+import BaseComponent from "../../Framework/Fundamental/Base/BaseComponent";
 import {setTheme} from "../../AppState/ThemeState/Actions";
 import {STORE_CONNECT} from "../../Framework/Store/Decorators";
 
@@ -13,8 +13,8 @@ export default class Home extends BaseComponent {
         <div className="text">
           {this.toLocal('hello')}
         </div>
-        <button onClick={()=> this.getStoreDispatchFunc('setTheme')('light-theme')}>light</button>
-        <button onClick={()=>this.getStoreDispatchFunc('setTheme')('dark-theme')}>dark</button>
+        <button onClick={() => this.callStoreDispatchFunc('setTheme', 'light-theme')}>light</button>
+        <button onClick={() => this.callStoreDispatchFunc('setTheme', 'dark-theme')}>dark</button>
       </div>
     )
   }

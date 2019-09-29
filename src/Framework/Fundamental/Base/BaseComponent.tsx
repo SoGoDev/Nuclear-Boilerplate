@@ -33,10 +33,10 @@ export default class BaseComponent extends React.Component<any, any> {
   }
 
   navigateTo(path) {
-    if (this.getProp('history.push', undefined)) this.getProp('history.push')(path);
+    if (this.getProp('history.push', undefined)) this.callHook('history.push', path);
   }
 
-  navigateBack(){
+  navigateBack() {
     if (this.getProp('history.goBack', undefined)) this.getProp('history.goBack')();
   }
 
