@@ -9,7 +9,7 @@ import {AppStore} from './Framework/Store';
 import RoutesFactory from './Framework/Router';
 
 import {ThemeProvider} from "./Framework/Components/ThemeProvider";
-import './Themes/index.scss';
+import './Styles/index.scss';
 
 const browserHistory = createBrowserHistory();
 const {store, persistor} = AppStore();

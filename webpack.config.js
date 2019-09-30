@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   stats: "errors-warnings",
-  entry: ["./src/index.tsx","./src/Themes/index.scss" ],
+  entry: ["./src/index.tsx","./src/Styles/index.scss" ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.css', '.scss']
   },
@@ -30,7 +30,7 @@ module.exports = {
       {
         test:/\.(sa|sc|c)ss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',
         ],
