@@ -1,6 +1,6 @@
 ![alt tag](https://image.flaticon.com/icons/svg/2017/2017027.svg)
 
-# Simple-React-Boilerplate
+# Nuclear-Boilerplate
 
 
 **Preinstalled packages**
