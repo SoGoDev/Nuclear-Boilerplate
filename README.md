@@ -7,10 +7,9 @@
 
 1) Redux  
 2) Lodash  
-3) React-redux
-4) React-persists
-5) React-redux-router
-
+3) React-redux  
+4) React-persists  
+5) React-redux-router  
 
 **Additional features**
 1) Localization
@@ -18,7 +17,7 @@
 
 **How to start** 
 
-`git@github.com:KoDDrovosek/Simple-React-Boilerplate.git`  
+`git@github.com:SoGoDev/Nuclear-Boilerplate.git`  
 
 `cd <YOUR_PROJECT_FOLDER>`  
 
