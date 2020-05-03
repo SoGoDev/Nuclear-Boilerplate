@@ -1,13 +1,9 @@
-function importAll(lang) {
-  return lang.keys().reduce((acc, cur) => {
-    acc[cur.replace('./', "").replace(".json", "").toUpperCase()] = lang(cur);
-    return acc
-  }, {})
-}
+import languages from '../../Localization';
+import {store} from "../Store";
 
-const languages = importAll(require.context('../../Localization/', true, /.json/));
-
-export default function Localize(key: string, languageKey: string): string {
-  if (languages[languageKey] && languages[languageKey][key]) return languages[languageKey][key];
+export default function Localize(key: string): string {
+  // @ts-ignore
+  const LKEY = store.getState().global.language;
+  if (languages[LKEY.toUpperCase()] && languages[LKEY.toUpperCase()][key]) return languages[LKEY.toUpperCase()][key];
   return languages['EN'][key]
 }
