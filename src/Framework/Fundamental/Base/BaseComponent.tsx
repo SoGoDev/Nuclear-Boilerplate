@@ -29,7 +29,7 @@ export default class BaseComponent extends React.Component<any, any> {
   }
 
   toLocal(text): string {
-    return Localize(text, navigator.language.toUpperCase())
+    return Localize(text)
   }
 
   navigateTo(path) {

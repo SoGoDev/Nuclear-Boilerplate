@@ -1,8 +1,7 @@
 import {connect} from 'react-redux';
 import * as Lodash from 'lodash'
 
-
-export function STORE_CONNECT(STORE_KEYS?: [string], STORE_ACTIONS?: [any]) {
+export function STORE_CONNECT(STORE_KEYS?: [string] | [], STORE_ACTIONS?: {[key: string]: Function}) {
 
   const mapStateToProps = store => {
     if (!STORE_KEYS || !Array.isArray(STORE_KEYS) || !STORE_KEYS.length) return store;
@@ -16,10 +15,10 @@ export function STORE_CONNECT(STORE_KEYS?: [string], STORE_ACTIONS?: [any]) {
   };
 
   const mapDispatchToProps = dispatch => {
-    if (!STORE_ACTIONS || !Array.isArray(STORE_ACTIONS) || !STORE_ACTIONS.length) return {};
+    if (!STORE_ACTIONS || STORE_ACTIONS === {}) return {};
 
-    return STORE_ACTIONS.reduce((acc: { APP_STORE_DISPATCH: {} }, cur: Function) => {
-      Lodash.set(acc.APP_STORE_DISPATCH, cur.name, (payload) => dispatch(cur(payload)));
+    return Object.entries(STORE_ACTIONS).reduce((acc: { APP_STORE_DISPATCH: {} }, cur: [string, Function]) => {
+      Lodash.set(acc.APP_STORE_DISPATCH, cur[0], (payload) => dispatch(cur[1](payload)));
       return acc
     }, {APP_STORE_DISPATCH: {}})
 

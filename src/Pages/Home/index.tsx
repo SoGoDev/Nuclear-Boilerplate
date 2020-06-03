@@ -3,8 +3,7 @@ import BaseComponent from "../../Framework/Fundamental/Base/BaseComponent";
 import {setTheme} from "../../AppState/ThemeState/Actions";
 import {STORE_CONNECT} from "../../Framework/Store/Decorators";
 
-// @ts-ignore
-@STORE_CONNECT([], [setTheme])
+@STORE_CONNECT([], {setTheme})
 export default class Home extends BaseComponent {
 
   render() {

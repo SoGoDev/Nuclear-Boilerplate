@@ -1,15 +1,14 @@
 import * as React from 'react'
 import {STORE_CONNECT} from "../../Store/Decorators";
-import BaseComponent from "../../Fundamental/Base/BaseComponent";
+import {getStoreProp} from 'src/Framework/Support/Helpers';
 
 
-@STORE_CONNECT(['themeStore'])
-export class ThemeProvider extends BaseComponent {
-  render() {
-    return (
-    <div className={this.getStoreProp('themeStore.theme')}>
-      {this.props.children}
+function ThemeProvider(props) {
+  return (
+    <div className={getStoreProp(props, 'global.theme')}>
+      {props.children}
     </div>
-    )
-  }
+  )
 }
+
+export default STORE_CONNECT(['global'])(ThemeProvider)
