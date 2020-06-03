@@ -1,6 +1,6 @@
 import * as React from 'react'
 import BaseComponent from "../../Framework/Fundamental/Base/BaseComponent";
-import {setTheme} from "../../AppState/ThemeState/Actions";
+import {setTheme} from "../../AppState/GlobalState/Actions";
 import {STORE_CONNECT} from "../../Framework/Store/Decorators";
 
 @STORE_CONNECT([], {setTheme})

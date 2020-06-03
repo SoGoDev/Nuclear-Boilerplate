@@ -11,7 +11,7 @@ describe('Home page', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Provider store={store({themeStore:{theme: 'light'}})}><Home/></Provider>);
+    wrapper = shallow(<Provider store={store({global:{theme: 'light'}})}><Home/></Provider>);
   });
 
 
