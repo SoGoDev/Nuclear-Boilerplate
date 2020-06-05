@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {STORE_CONNECT} from "../../Store/Decorators";
-import {getStoreProp} from 'src/Framework/Support/Helpers';
+import {getStoreProp} from '../../Support/Helpers';
 
 
 function ThemeProvider(props) {

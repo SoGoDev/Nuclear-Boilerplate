@@ -21,7 +21,7 @@ class App extends React.Component {
         <PersistGate persistor={persistor} loading={null}>
           <ThemeProvider>
             <Router history={history}>
-              {RoutesFactory()}
+              {RoutesFactory(store)}
             </Router>
           </ThemeProvider>
         </PersistGate>

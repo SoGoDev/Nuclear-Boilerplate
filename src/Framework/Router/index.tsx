@@ -1,32 +1,45 @@
 import * as React from "react";
-import {Route} from 'react-router';
+import {Route, Redirect} from 'react-router';
 
 import routes from '../../Routes';
 
 export interface RouteModel {
   id: string
   path: string
-  request?: string
-  component: string | React.Component | any
+  component: string | React.Component | any,
+  isPrivate?: boolean,
+  hasAccess?: (store: any) => boolean,
+  onAccessRejectLink?: string,
 }
 
-export default function () {
+function PrivateRoute(props) {
+  const { route, store } = props
 
-  return routes.map((route: RouteModel)=> {
-    const conf: RouteModel = {
-      id: route.id,
-      path: route.path,
-      component: route.component
-    };
+  if(route.hasAccess && !route.hasAccess(store.getState())) return <Redirect to={route.onAccessRejectLink}/>
 
-    if(typeof route.component === "string") conf.component = require(`../../Pages${route.component}`).default;
+  return <Route
+    exact
+    sensitive
+    key={route.id}
+    path={route.path}
+    component={route.component}
+  />
+}
+
+
+export default function (store) {
+
+  return routes.map((route: RouteModel) => {
+
+    if (typeof route.component === "string") route.component = require(`../../Pages${route.component}`).default;
+    if (route.isPrivate) return <PrivateRoute key={route.id} route={route} store={store}/>
 
     return <Route
       exact
       sensitive
-      key={conf.id}
-      path={conf.path}
-      component={conf.component}
+      key={route.id}
+      path={route.path}
+      component={route.component}
     />
   })
 }
