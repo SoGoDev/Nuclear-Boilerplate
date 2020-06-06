@@ -2,7 +2,7 @@ import {SET_LANGUAGE, SET_THEME} from "./Constants";
 
 const initialState = {
   language: window.navigator.language,
-  theme: 'light'
+  theme: 'light-theme'
 };
 
 export default function (state = initialState, action) {
